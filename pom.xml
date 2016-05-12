@@ -4,4 +4,9 @@
   <artifactId>tetris</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
+  <modules>
+  	<module>tetris-model</module>
+  	<module>tetris-view</module>
+  	<module>tetris-controller</module>
+  </modules>
 </project>
