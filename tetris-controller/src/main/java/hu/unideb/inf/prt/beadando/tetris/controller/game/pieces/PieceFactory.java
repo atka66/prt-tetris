@@ -1,0 +1,49 @@
+package hu.unideb.inf.prt.beadando.tetris.controller.game.pieces;
+
+import java.util.Random;
+
+public class PieceFactory {
+
+	public static Piece CreateRandomPiece() {
+		Piece resultPiece = new Piece();
+		Random randomNumber = new Random();
+		switch (randomNumber.nextInt(7) + 1) {
+		// I piece
+		case 1: {
+			resultPiece.setFigure(new int[][] { { 0, 0, 0, 0 }, { 1, 1, 1, 1 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } });
+			break;
+		}
+		// J piece
+		case 2: {
+			resultPiece.setFigure(new int[][] { { 2, 0, 0 }, { 2, 2, 2 }, { 0, 0, 0 } });
+			break;
+		}
+		// L piece
+		case 3: {
+			resultPiece.setFigure(new int[][] { { 0, 0, 3 }, { 3, 3, 3 }, { 0, 0, 0 } });
+			break;
+		}
+		// O piece
+		case 4: {
+			resultPiece.setFigure(new int[][] { { 4, 4 }, { 4, 4 } });
+			break;
+		}
+		// S piece
+		case 5: {
+			resultPiece.setFigure(new int[][] { { 0, 5, 5 }, { 5, 5, 0 }, { 0, 0, 0 } });
+			break;
+		}
+		// T piece
+		case 6: {
+			resultPiece.setFigure(new int[][] { { 0, 6, 0 }, { 6, 6, 6 }, { 0, 0, 0 } });
+			break;
+		}
+		// Z piece
+		case 7: {
+			resultPiece.setFigure(new int[][] { { 7, 7, 0 }, { 0, 7, 7 }, { 0, 0, 0 } });
+			break;
+		}
+		}
+		return resultPiece;
+	}
+}
