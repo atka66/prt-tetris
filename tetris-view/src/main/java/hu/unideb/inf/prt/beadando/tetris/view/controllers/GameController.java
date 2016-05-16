@@ -59,15 +59,19 @@ public class GameController implements Initializable {
 	}
 
 	private void drawField() {
+		int[][] fieldMap = game.getField().getMap();
+		for (int i = 0; i < fieldMap.length; i++) {
+			for (int j = 0; j < fieldMap[i].length; j++) {
+				drawBlockOnGc(gcNextPiece, j, i, fieldMap[i][j]);
+			}
+		}
 	}
 
 	private void drawNextPiece() {
 		int[][] nextPieceFigure = game.getNextPiece().getFigure();
 		for (int i = 0; i < nextPieceFigure.length; i++) {
 			for (int j = 0; j < nextPieceFigure[i].length; j++) {
-				if (nextPieceFigure[i][j] != 0) {
-					drawBlockOnGc(gcNextPiece, j, i, nextPieceFigure[i][j]);
-				}
+				drawBlockOnGc(gcNextPiece, j, i, nextPieceFigure[i][j]);
 			}
 		}
 	}
@@ -90,6 +94,12 @@ public class GameController implements Initializable {
 				gcNextPiece.strokeRect(i * 16, j * 16, 15, 15);
 			}
 		}
+	}
+
+	private void render() {
+		clearAll();
+		labelScore.setText(Integer.toString(game.getPoints()));
+		drawField();
 		drawNextPiece();
 	}
 
@@ -97,6 +107,6 @@ public class GameController implements Initializable {
 		game = new Game();
 		gcField = canvasField.getGraphicsContext2D();
 		gcNextPiece = canvasNextPiece.getGraphicsContext2D();
-		clearAll();
+		render();
 	}
 }

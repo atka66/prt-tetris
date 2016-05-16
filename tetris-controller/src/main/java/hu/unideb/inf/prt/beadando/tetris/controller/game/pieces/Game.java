@@ -4,6 +4,7 @@ public class Game {
 	private Field field;
 	private Piece currentPiece;
 	private Piece nextPiece;
+	private int points;
 
 	public Game() {
 		field = new Field();
@@ -46,5 +47,13 @@ public class Game {
 
 	public void setNextPiece(Piece nextPiece) {
 		this.nextPiece = nextPiece;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
 	}
 }
