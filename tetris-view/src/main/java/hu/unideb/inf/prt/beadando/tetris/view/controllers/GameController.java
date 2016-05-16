@@ -9,8 +9,10 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -19,19 +21,51 @@ import javafx.util.Duration;
 public class GameController implements Initializable {
 
 	@FXML
+	Node node;
+	@FXML
 	Label labelScore;
 	@FXML
 	Canvas canvasNextPiece;
 	@FXML
 	Canvas canvasField;
+	@FXML
+	Button buttonLeft;
+	@FXML
+	Button buttonRight;
+	@FXML
+	Button buttonRotateLeft;
+	@FXML
+	Button buttonRotateRight;
+	@FXML
+	Button buttonDown;
 
 	GraphicsContext gcField;
 	GraphicsContext gcNextPiece;
 	Game game;
 
 	@FXML
-	private void handleKeyPressed(ActionEvent event) {
-		System.out.println("KEY PRESSED");
+	private void handleButtonLeft(ActionEvent event) {
+		System.out.println("LEFT");
+	}
+
+	@FXML
+	private void handleButtonRight(ActionEvent event) {
+		System.out.println("RIGHT");
+	}
+
+	@FXML
+	private void handleButtonRotateLeft(ActionEvent event) {
+		System.out.println("ROTATE LEFT");
+	}
+
+	@FXML
+	private void handleButtonRotateRight(ActionEvent event) {
+		System.out.println("ROTATE RIGHT");
+	}
+
+	@FXML
+	private void handleButtonDown(ActionEvent event) {
+		System.out.println("DOWN");
 	}
 
 	private Paint getBlockColorFromInt(int color) {
