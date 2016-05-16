@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane onKeyPressed="#handleKeyPressed" prefHeight="480.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="hu.unideb.inf.prt.beadando.tetris.view.controllers.GameController">
+   <children>
+      <Canvas fx:id="canvasField" height="320.0" layoutX="240.0" layoutY="80.0" width="160.0" />
+      <Label layoutX="486.0" layoutY="72.0" text="Next piece:" />
+      <Label layoutX="112.0" layoutY="72.0" text="Score:" />
+      <Label fx:id="labelScore" layoutX="89.0" layoutY="89.0" text="SCORE" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Canvas fx:id="canvasNextPiece" height="64.0" layoutX="484.0" layoutY="93.0" width="64.0" />
+   </children>
+</AnchorPane>
