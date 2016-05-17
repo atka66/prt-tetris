@@ -3,7 +3,7 @@ package hu.unideb.inf.prt.beadando.tetris.view.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import hu.unideb.inf.prt.beadando.tetris.controller.game.pieces.Game;
+import hu.unideb.inf.prt.beadando.tetris.controller.game.Game;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -122,7 +122,6 @@ public class GameController implements Initializable {
 				gcField.strokeRect(i * 16, j * 16, 15, 15);
 			}
 		}
-
 		gcNextPiece.setFill(Color.BLACK);
 		gcNextPiece.fillRect(0, 0, 64, 64);
 		gcNextPiece.setStroke(Color.GRAY);
@@ -145,7 +144,7 @@ public class GameController implements Initializable {
 		gcField = canvasField.getGraphicsContext2D();
 		gcNextPiece = canvasNextPiece.getGraphicsContext2D();
 		render();
-		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), ae -> {
+		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), ae -> {
 			game.tick();
 			render();
 		}));

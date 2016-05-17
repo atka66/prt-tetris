@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.beadando.tetris.controller.game.pieces;
+package hu.unideb.inf.prt.beadando.tetris.controller.game;
 
 public class Piece {
 	private int[][] figure;
