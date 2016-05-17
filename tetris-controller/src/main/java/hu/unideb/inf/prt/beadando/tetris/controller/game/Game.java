@@ -1,24 +1,34 @@
 package hu.unideb.inf.prt.beadando.tetris.controller.game;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Game {
+	
+	private static Logger logger = LoggerFactory.getLogger(Game.class);
+	
 	private Field field;
 	private Piece currentPiece;
 	private Piece nextPiece;
 	private int points;
+	private boolean gameOver;
 
 	public Game() {
+		gameOver = false;
 		field = new Field();
 		nextPiece = PieceFactory.CreateRandomPiece();
+		logger.info("New game created.");
 	}
 
 	public void tick() {
-		if (currentPiece == null) {
-			currentPiece = new Piece();
-			currentPiece.setFigure(nextPiece.getFigure());
-			nextPiece = PieceFactory.CreateRandomPiece();
-			spawnCurrentPiece();
+		if (!gameOver) {
+			if (currentPiece == null) {
+				currentPiece = new Piece();
+				currentPiece.setFigure(nextPiece.getFigure());
+				nextPiece = PieceFactory.CreateRandomPiece();
+			}
+			currentPiece.move(0, 1);
 		}
-		// TODO moving pieces
 	}
 
 	public void spawnCurrentPiece() {
@@ -55,5 +65,13 @@ public class Game {
 
 	public void setPoints(int points) {
 		this.points = points;
+	}
+
+	public boolean isGameOver() {
+		return gameOver;
+	}
+
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
 	}
 }

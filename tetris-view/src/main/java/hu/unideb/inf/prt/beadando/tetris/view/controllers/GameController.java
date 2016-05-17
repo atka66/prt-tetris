@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import hu.unideb.inf.prt.beadando.tetris.controller.game.Game;
+import hu.unideb.inf.prt.beadando.tetris.controller.game.Piece;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -104,6 +106,16 @@ public class GameController implements Initializable {
 		}
 	}
 
+	private void drawCurrentPiece() {
+		Piece currentPiece = game.getCurrentPiece();
+		int[][] currentPieceFigure = currentPiece.getFigure();
+		for (int i = 0; i < currentPieceFigure.length; i++) {
+			for (int j = 0; j < currentPieceFigure[i].length; j++) {
+				drawBlockOnGc(gcField, j + currentPiece.getX(), i + currentPiece.getY(), currentPieceFigure[i][j]);
+			}
+		}
+	}
+
 	private void drawNextPiece() {
 		int[][] nextPieceFigure = game.getNextPiece().getFigure();
 		for (int i = 0; i < nextPieceFigure.length; i++) {
@@ -136,7 +148,12 @@ public class GameController implements Initializable {
 		clearAll();
 		labelScore.setText(Integer.toString(game.getPoints()));
 		drawField();
-		drawNextPiece();
+		if (game.getCurrentPiece() != null) {
+			drawCurrentPiece();
+		}
+		if (game.getNextPiece() != null) {
+			drawNextPiece();
+		}
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
@@ -148,6 +165,7 @@ public class GameController implements Initializable {
 			game.tick();
 			render();
 		}));
+		timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
 	}
 }
