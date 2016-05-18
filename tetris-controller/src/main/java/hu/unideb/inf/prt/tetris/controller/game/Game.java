@@ -3,6 +3,9 @@ package hu.unideb.inf.prt.tetris.controller.game;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import hu.unideb.inf.prt.tetris.model.entity.Highscore;
+import hu.unideb.inf.prt.tetris.model.entity.Model;
+
 public class Game {
 
 	private static Logger logger = LoggerFactory.getLogger(Game.class);
@@ -20,6 +23,14 @@ public class Game {
 		gameOver = false;
 		field = new Field();
 		nextPiece = PieceFactory.CreateRandomPiece();
+	}
+	
+	public void addCurrentGameToHighscore() {
+		Highscore highscore = new Highscore("ASd", 500L);
+		Model model = new Model();
+		model = model.openHighscoreTable();
+		model.getHighscoreList().add(highscore);
+		model.saveHighscoreTable();
 	}
 
 	public void tick() {

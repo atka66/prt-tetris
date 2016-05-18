@@ -1,44 +1,32 @@
 package hu.unideb.inf.prt.tetris.model.entity;
 
-import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+@XmlRootElement(name = "highscore")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Highscore {
 
-@Entity
-public class Highscore implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	@Column(name = "player_name")
-	private String playerName;
-	
+	private String player;
 	private Long score;
 
 	public Highscore() {
 		super();
 	}
 
-	public Long getId() {
-		return id;
+	public Highscore(String player, Long score) {
+		super();
+		this.player = player;
+		this.score = score;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public String getPlayer() {
+		return player;
 	}
 
-	public String getPlayerName() {
-		return playerName;
-	}
-
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
+	public void setPlayer(String player) {
+		this.player = player;
 	}
 
 	public Long getScore() {

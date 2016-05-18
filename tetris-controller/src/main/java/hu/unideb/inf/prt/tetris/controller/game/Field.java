@@ -3,8 +3,6 @@ package hu.unideb.inf.prt.tetris.controller.game;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sun.javafx.scene.traversal.Direction;
-
 public class Field {
 
 	private static Logger logger = LoggerFactory.getLogger(Field.class);

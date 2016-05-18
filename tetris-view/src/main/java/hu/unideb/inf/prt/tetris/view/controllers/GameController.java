@@ -171,6 +171,7 @@ public class GameController implements Initializable {
 				drawNextPiece();
 			}
 		} else {
+			game.addCurrentGameToHighscore();
 			timeline.stop();
 		}
 	}
