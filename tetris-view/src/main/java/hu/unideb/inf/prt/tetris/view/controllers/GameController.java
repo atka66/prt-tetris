@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import hu.unideb.inf.prt.tetris.controller.game.Game;
 import hu.unideb.inf.prt.tetris.controller.game.Piece;
+import hu.unideb.inf.prt.tetris.controller.game.PieceAction;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -48,7 +49,7 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonLeft(ActionEvent event) {
-		if (!game.getField().isPieceCollideSide(game.getCurrentPiece(), -1)) {
+		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.LEFT)) {
 			game.getCurrentPiece().move(-1, 0);
 		}
 		render();
@@ -56,7 +57,7 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonRight(ActionEvent event) {
-		if (!game.getField().isPieceCollideSide(game.getCurrentPiece(), 1)) {
+		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.RIGHT)) {
 			game.getCurrentPiece().move(1, 0);
 		}
 		render();
@@ -74,7 +75,7 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonDown(ActionEvent event) {
-		if (!game.getField().isPieceCollideUnder(game.getCurrentPiece())) {
+		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.DOWN)) {
 			game.getCurrentPiece().move(0, 1);
 		}
 		render();

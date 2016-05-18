@@ -32,7 +32,7 @@ public class Game {
 			nextPiece = PieceFactory.CreateRandomPiece();
 		}
 		if (tickCount % 30 == 0) {
-			if (!field.isPieceCollideUnder(currentPiece)) {
+			if (!field.isPieceCollide(currentPiece, PieceAction.DOWN)) {
 				currentPiece.move(0, 1);
 			} else {
 				field.settlePiece(currentPiece);
