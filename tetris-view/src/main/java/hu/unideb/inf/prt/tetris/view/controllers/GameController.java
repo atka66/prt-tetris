@@ -48,27 +48,36 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonLeft(ActionEvent event) {
-		System.out.println("LEFT");
+		if (!game.getField().isPieceCollideSide(game.getCurrentPiece(), -1)) {
+			game.getCurrentPiece().move(-1, 0);
+		}
+		render();
 	}
 
 	@FXML
 	private void handleButtonRight(ActionEvent event) {
-		System.out.println("RIGHT");
+		if (!game.getField().isPieceCollideSide(game.getCurrentPiece(), 1)) {
+			game.getCurrentPiece().move(1, 0);
+		}
+		render();
 	}
 
 	@FXML
 	private void handleButtonRotateLeft(ActionEvent event) {
-		System.out.println("ROTATE LEFT");
+		render();
 	}
 
 	@FXML
 	private void handleButtonRotateRight(ActionEvent event) {
-		System.out.println("ROTATE RIGHT");
+		render();
 	}
 
 	@FXML
 	private void handleButtonDown(ActionEvent event) {
-		System.out.println("DOWN");
+		if (!game.getField().isPieceCollideUnder(game.getCurrentPiece())) {
+			game.getCurrentPiece().move(0, 1);
+		}
+		render();
 	}
 
 	private Paint getBlockColorFromInt(int color) {
@@ -170,7 +179,7 @@ public class GameController implements Initializable {
 		gcField = canvasField.getGraphicsContext2D();
 		gcNextPiece = canvasNextPiece.getGraphicsContext2D();
 		render();
-		timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> {
+		timeline = new Timeline(new KeyFrame(Duration.millis(20), ae -> {
 			game.tick();
 			render();
 		}));

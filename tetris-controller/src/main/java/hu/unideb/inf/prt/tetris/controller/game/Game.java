@@ -12,15 +12,18 @@ public class Game {
 	private Piece nextPiece;
 	private int points;
 	private boolean gameOver;
+	private int tickCount;
 
 	public Game() {
 		logger.info("New game created.");
+		tickCount = 0;
 		gameOver = false;
 		field = new Field();
 		nextPiece = PieceFactory.CreateRandomPiece();
 	}
 
 	public void tick() {
+		tickCount++;
 		if (currentPiece == null) {
 			logger.info("Next piece replaces current piece, and gets a new random one");
 			currentPiece = new Piece();
@@ -28,11 +31,13 @@ public class Game {
 			gameOver = field.isBadSpawn(currentPiece);
 			nextPiece = PieceFactory.CreateRandomPiece();
 		}
-		if (!field.isPieceCollide(currentPiece)) {
-			currentPiece.move(0, 1);
-		} else {
-			field.settlePiece(currentPiece);
-			currentPiece = null;
+		if (tickCount % 30 == 0) {
+			if (!field.isPieceCollideUnder(currentPiece)) {
+				currentPiece.move(0, 1);
+			} else {
+				field.settlePiece(currentPiece);
+				currentPiece = null;
+			}
 		}
 	}
 
@@ -74,5 +79,13 @@ public class Game {
 
 	public void setGameOver(boolean gameOver) {
 		this.gameOver = gameOver;
+	}
+
+	public int getTickCount() {
+		return tickCount;
+	}
+
+	public void setTickCount(int tickCount) {
+		this.tickCount = tickCount;
 	}
 }
