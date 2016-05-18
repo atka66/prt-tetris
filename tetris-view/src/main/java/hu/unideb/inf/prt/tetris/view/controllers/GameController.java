@@ -101,7 +101,9 @@ public class GameController implements Initializable {
 		int[][] fieldMap = game.getField().getMap();
 		for (int i = 0; i < fieldMap.length; i++) {
 			for (int j = 0; j < fieldMap[i].length; j++) {
-				drawBlockOnGc(gcNextPiece, j, i, fieldMap[i][j]);
+				if (fieldMap[i][j] != 0) {
+					drawBlockOnGc(gcField, j, i, fieldMap[i][j]);
+				}
 			}
 		}
 	}
@@ -111,7 +113,9 @@ public class GameController implements Initializable {
 		int[][] currentPieceFigure = currentPiece.getFigure();
 		for (int i = 0; i < currentPieceFigure.length; i++) {
 			for (int j = 0; j < currentPieceFigure[i].length; j++) {
-				drawBlockOnGc(gcField, j + currentPiece.getX(), i + currentPiece.getY(), currentPieceFigure[i][j]);
+				if (currentPieceFigure[i][j] != 0) {
+					drawBlockOnGc(gcField, j + currentPiece.getX(), i + currentPiece.getY(), currentPieceFigure[i][j]);
+				}
 			}
 		}
 	}
@@ -161,7 +165,7 @@ public class GameController implements Initializable {
 		gcField = canvasField.getGraphicsContext2D();
 		gcNextPiece = canvasNextPiece.getGraphicsContext2D();
 		render();
-		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500), ae -> {
+		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> {
 			game.tick();
 			render();
 		}));

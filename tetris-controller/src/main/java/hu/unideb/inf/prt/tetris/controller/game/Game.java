@@ -30,6 +30,9 @@ public class Game {
 			}
 			if (!field.isPieceCollide(currentPiece)) {
 				currentPiece.move(0, 1);
+			} else {
+				field.settlePiece(currentPiece);
+				currentPiece = null;
 			}
 		}
 	}

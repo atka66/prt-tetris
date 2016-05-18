@@ -39,6 +39,17 @@ public class Field {
 		return false;
 	}
 
+	public void settlePiece(Piece piece) {
+		int[][] figure = piece.getFigure();
+		for (int i = 0; i < figure.length; i++) {
+			for (int j = 0; j < figure[i].length; j++) {
+				if (figure[i][j] != 0) {
+					map[piece.getY() + i][piece.getX() + j] = figure[i][j];
+				}
+			}
+		}
+	}
+
 	public int[][] getMap() {
 		return map;
 	}
