@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Game {
-	
+
 	private static Logger logger = LoggerFactory.getLogger(Game.class);
-	
+
 	private Field field;
 	private Piece currentPiece;
 	private Piece nextPiece;
@@ -28,7 +28,9 @@ public class Game {
 				currentPiece.setFigure(nextPiece.getFigure());
 				nextPiece = PieceFactory.CreateRandomPiece();
 			}
-			currentPiece.move(0, 1);
+			if (!field.isPieceCollide(currentPiece)) {
+				currentPiece.move(0, 1);
+			}
 		}
 	}
 
