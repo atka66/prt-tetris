@@ -18,6 +18,18 @@ public class Field {
 		}
 	}
 
+	public boolean isBadSpawn(Piece piece) {
+		int[][] pieceFigure = piece.getFigure();
+		for(int i = 0; i < pieceFigure.length; i++) {
+			for(int j = 0; j < pieceFigure[i].length; j++) {
+				if (pieceFigure[i][j] != 0 && map[piece.getY() + i][piece.getX() + j] != 0) {
+					return true; 
+				}
+			}
+		}
+		return false;
+	}
+
 	public boolean isPieceCollide(Piece piece) {
 		int[][] figure = piece.getFigure();
 		for (int i = 0; i < figure.length; i++) {
@@ -48,6 +60,7 @@ public class Field {
 				}
 			}
 		}
+		logger.info("Piece settled");
 	}
 
 	public int[][] getMap() {

@@ -21,24 +21,19 @@ public class Game {
 	}
 
 	public void tick() {
-		if (!gameOver) {
-			if (currentPiece == null) {
-				logger.info("Next piece replaces current piece, and gets a new random one");
-				currentPiece = new Piece();
-				currentPiece.setFigure(nextPiece.getFigure());
-				nextPiece = PieceFactory.CreateRandomPiece();
-			}
-			if (!field.isPieceCollide(currentPiece)) {
-				currentPiece.move(0, 1);
-			} else {
-				field.settlePiece(currentPiece);
-				currentPiece = null;
-			}
+		if (currentPiece == null) {
+			logger.info("Next piece replaces current piece, and gets a new random one");
+			currentPiece = new Piece();
+			currentPiece.setFigure(nextPiece.getFigure());
+			gameOver = field.isBadSpawn(currentPiece);
+			nextPiece = PieceFactory.CreateRandomPiece();
 		}
-	}
-
-	public void spawnCurrentPiece() {
-		// TODO checking if the piece can fit in the field
+		if (!field.isPieceCollide(currentPiece)) {
+			currentPiece.move(0, 1);
+		} else {
+			field.settlePiece(currentPiece);
+			currentPiece = null;
+		}
 	}
 
 	public Field getField() {

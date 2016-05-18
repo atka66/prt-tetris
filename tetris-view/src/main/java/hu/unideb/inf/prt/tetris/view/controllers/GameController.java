@@ -41,6 +41,7 @@ public class GameController implements Initializable {
 	@FXML
 	Button buttonDown;
 
+	Timeline timeline;
 	GraphicsContext gcField;
 	GraphicsContext gcNextPiece;
 	Game game;
@@ -149,14 +150,18 @@ public class GameController implements Initializable {
 	}
 
 	private void render() {
-		clearAll();
-		labelScore.setText(Integer.toString(game.getPoints()));
-		drawField();
-		if (game.getCurrentPiece() != null) {
-			drawCurrentPiece();
-		}
-		if (game.getNextPiece() != null) {
-			drawNextPiece();
+		if (!game.isGameOver()) {
+			clearAll();
+			labelScore.setText(Integer.toString(game.getPoints()));
+			drawField();
+			if (game.getCurrentPiece() != null) {
+				drawCurrentPiece();
+			}
+			if (game.getNextPiece() != null) {
+				drawNextPiece();
+			}
+		} else {
+			timeline.stop();
 		}
 	}
 
@@ -165,7 +170,7 @@ public class GameController implements Initializable {
 		gcField = canvasField.getGraphicsContext2D();
 		gcNextPiece = canvasNextPiece.getGraphicsContext2D();
 		render();
-		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> {
+		timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> {
 			game.tick();
 			render();
 		}));
