@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="280.0" prefWidth="240.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="hu.unideb.inf.prt.beadando.tetris.view.controllers.LeaderboardController">
+<AnchorPane prefHeight="280.0" prefWidth="240.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="hu.unideb.inf.prt.tetris.view.controllers.LeaderboardController">
    <children>
       <Label fx:id="labelLeaderboard" layoutX="46.0" layoutY="14.0" text="Leaderboard">
          <font>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.prt.beadando.tetris.view.controllers.GameController">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.prt.tetris.view.controllers.GameController">
    <children>
       <Canvas fx:id="canvasField" height="320.0" layoutX="240.0" layoutY="40.0" width="160.0" />
       <Label layoutX="486.0" layoutY="72.0" text="Next piece:" />

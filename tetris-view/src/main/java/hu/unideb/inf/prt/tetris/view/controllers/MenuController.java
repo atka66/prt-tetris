@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.beadando.tetris.view.controllers;
+package hu.unideb.inf.prt.tetris.view.controllers;
 
 import java.io.IOException;
 import java.net.URL;

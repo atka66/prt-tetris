@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.beadando.tetris.model.entity;
+package hu.unideb.inf.prt.tetris.model.entity;
 
 import java.io.Serializable;
 

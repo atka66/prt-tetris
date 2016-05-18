@@ -1,6 +1,12 @@
-package hu.unideb.inf.prt.beadando.tetris.controller.game;
+package hu.unideb.inf.prt.tetris.controller.game;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Piece {
+
+	private static Logger logger = LoggerFactory.getLogger(Piece.class);
+
 	private int[][] figure;
 	private int x;
 	private int y;
@@ -9,10 +15,11 @@ public class Piece {
 		x = 4;
 		y = 0;
 	}
-	
+
 	public void move(int xx, int yy) {
 		x += xx;
 		y += yy;
+		logger.info("Piece moved to [" + x + "," + y + "]");
 	}
 
 	public int[][] getFigure() {

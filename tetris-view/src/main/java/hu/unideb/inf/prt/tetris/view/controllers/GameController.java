@@ -1,10 +1,10 @@
-package hu.unideb.inf.prt.beadando.tetris.view.controllers;
+package hu.unideb.inf.prt.tetris.view.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import hu.unideb.inf.prt.beadando.tetris.controller.game.Game;
-import hu.unideb.inf.prt.beadando.tetris.controller.game.Piece;
+import hu.unideb.inf.prt.tetris.controller.game.Game;
+import hu.unideb.inf.prt.tetris.controller.game.Piece;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

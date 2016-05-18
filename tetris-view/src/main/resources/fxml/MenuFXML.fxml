@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="240.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="hu.unideb.inf.prt.beadando.tetris.view.controllers.MenuController">
+<AnchorPane prefHeight="240.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="hu.unideb.inf.prt.tetris.view.controllers.MenuController">
    <children>
       <Button fx:id="buttonStartGame" layoutX="123.0" layoutY="139.0" mnemonicParsing="false" onAction="#handleButtonStartGame" text="Start Game" />
       <Button fx:id="buttonLeaderboard" layoutX="119.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleButtonLeaderboard" text="Leaderboard" />

@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.beadando.tetris.view.main;
+package hu.unideb.inf.prt.tetris.view.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

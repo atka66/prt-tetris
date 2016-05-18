@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.beadando.tetris.controller.game;
+package hu.unideb.inf.prt.tetris.controller.game;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,15 +14,16 @@ public class Game {
 	private boolean gameOver;
 
 	public Game() {
+		logger.info("New game created.");
 		gameOver = false;
 		field = new Field();
 		nextPiece = PieceFactory.CreateRandomPiece();
-		logger.info("New game created.");
 	}
 
 	public void tick() {
 		if (!gameOver) {
 			if (currentPiece == null) {
+				logger.info("Next piece replaces current piece, and gets a new random one");
 				currentPiece = new Piece();
 				currentPiece.setFigure(nextPiece.getFigure());
 				nextPiece = PieceFactory.CreateRandomPiece();
