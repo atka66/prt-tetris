@@ -32,6 +32,12 @@ public class Field {
 	}
 
 	public boolean isPieceCollide(Piece piece, PieceAction action) {
+		int[][] figure = new int[piece.getFigure().length][piece.getFigure()[0].length];
+		for (int i = 0; i < figure.length; i++) {
+			for (int j = 0; j < figure[i].length; j++) {
+				figure[i][j] = piece.getFigure()[j][(figure[i].length - 1) - i];
+			}
+		}
 		int xx = 0;
 		int yy = 0;
 		switch (action) {
@@ -47,10 +53,29 @@ public class Field {
 			xx = 1;
 			break;
 		}
+		case ROTATE_LEFT: {
+			int[][] figureTemp = new int[figure.length][figure[0].length];
+			for (int i = 0; i < figureTemp.length; i++) {
+				for (int j = 0; j < figureTemp[i].length; j++) {
+					figureTemp[i][j] = figure[(figure.length - 1) - j][i];
+				}
+			}
+			figure = figureTemp;
+			break;
+		}
+		case ROTATE_RIGHT: {
+			int[][] figureTemp = new int[figure.length][figure[0].length];
+			for (int i = 0; i < figureTemp.length; i++) {
+				for (int j = 0; j < figureTemp[i].length; j++) {
+					figureTemp[i][j] = figure[j][(figure[i].length - 1) - i];
+				}
+			}
+			figure = figureTemp;
+			break;
+		}
 		default: {
 		}
 		}
-		int[][] figure = piece.getFigure();
 		for (int i = 0; i < figure.length; i++) {
 			for (int j = 0; j < figure[i].length; j++) {
 				if (figure[i][j] != 0) {

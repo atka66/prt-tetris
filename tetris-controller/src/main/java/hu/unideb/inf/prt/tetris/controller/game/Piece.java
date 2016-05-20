@@ -22,6 +22,27 @@ public class Piece {
 		logger.info("Piece moved to [" + x + "," + y + "]");
 	}
 
+	public void rotate(boolean left) {
+		if (left) {
+			int[][] figureTemp = new int[figure.length][figure[0].length];
+			for (int i = 0; i < figureTemp.length; i++) {
+				for (int j = 0; j < figureTemp[i].length; j++) {
+					figureTemp[i][j] = figure[(figure.length - 1) - j][i];
+				}
+			}
+			figure = figureTemp;
+		} else {
+			int[][] figureTemp = new int[figure.length][figure[0].length];
+			for (int i = 0; i < figureTemp.length; i++) {
+				for (int j = 0; j < figureTemp[i].length; j++) {
+					figureTemp[i][j] = figure[j][(figure[i].length - 1) - i];
+				}
+			}
+			figure = figureTemp;
+		}
+		logger.info("Piece rotated " + (left ? "counterclockwised" : "clockwised"));
+	}
+
 	public int[][] getFigure() {
 		return figure;
 	}
