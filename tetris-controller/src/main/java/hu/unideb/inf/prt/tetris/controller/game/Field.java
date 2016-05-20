@@ -35,7 +35,7 @@ public class Field {
 		int[][] figure = new int[piece.getFigure().length][piece.getFigure()[0].length];
 		for (int i = 0; i < figure.length; i++) {
 			for (int j = 0; j < figure[i].length; j++) {
-				figure[i][j] = piece.getFigure()[j][(figure[i].length - 1) - i];
+				figure[i][j] = piece.getFigure()[i][j];
 			}
 		}
 		int xx = 0;
@@ -57,7 +57,7 @@ public class Field {
 			int[][] figureTemp = new int[figure.length][figure[0].length];
 			for (int i = 0; i < figureTemp.length; i++) {
 				for (int j = 0; j < figureTemp[i].length; j++) {
-					figureTemp[i][j] = figure[(figure.length - 1) - j][i];
+					figureTemp[i][j] = figure[j][(figure[i].length - 1) - i];
 				}
 			}
 			figure = figureTemp;
@@ -67,7 +67,7 @@ public class Field {
 			int[][] figureTemp = new int[figure.length][figure[0].length];
 			for (int i = 0; i < figureTemp.length; i++) {
 				for (int j = 0; j < figureTemp[i].length; j++) {
-					figureTemp[i][j] = figure[j][(figure[i].length - 1) - i];
+					figureTemp[i][j] = figure[(figure.length - 1) - j][i];
 				}
 			}
 			figure = figureTemp;

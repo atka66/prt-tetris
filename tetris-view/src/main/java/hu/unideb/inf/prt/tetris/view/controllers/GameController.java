@@ -66,7 +66,7 @@ public class GameController implements Initializable {
 	@FXML
 	private void handleButtonRotateLeft(ActionEvent event) {
 		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.ROTATE_LEFT)) {
-			game.getCurrentPiece().rotate(true);
+			game.getCurrentPiece().rotate(false);
 		}
 		render();
 	}
@@ -74,7 +74,7 @@ public class GameController implements Initializable {
 	@FXML
 	private void handleButtonRotateRight(ActionEvent event) {
 		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.ROTATE_RIGHT)) {
-			game.getCurrentPiece().rotate(false);
+			game.getCurrentPiece().rotate(true);
 		}
 		render();
 	}
