@@ -94,7 +94,7 @@ public class Field {
 		return false;
 	}
 
-	public void settlePiece(Piece piece) {
+	public int settlePiece(Piece piece) {
 		int[][] figure = piece.getFigure();
 		for (int i = 0; i < figure.length; i++) {
 			for (int j = 0; j < figure[i].length; j++) {
@@ -104,6 +104,27 @@ public class Field {
 			}
 		}
 		logger.info("Piece settled");
+		int rowsFull = 0;
+		for (int i = 0; i < map.length; i++) {
+			if (rowFull(i)) {
+				rowsFull++;
+				for (int ii = i; ii >= 1; ii--) {
+					for (int j = 0; j < map[ii].length; j++) {
+						map[ii][j] = map[ii - 1][j];
+					}
+				}
+			}
+		}
+		return rowsFull;
+	}
+
+	public boolean rowFull(int i) {
+		for (int j = 0; j < map[i].length; j++) {
+			if (map[i][j] == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public int[][] getMap() {

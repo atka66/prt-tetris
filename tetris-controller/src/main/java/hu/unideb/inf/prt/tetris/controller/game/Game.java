@@ -21,7 +21,7 @@ public class Game {
 		field = new Field();
 		nextPiece = PieceFactory.CreateRandomPiece();
 	}
-	
+
 	public void addCurrentGameToHighscore() {
 		// TODO
 	}
@@ -39,7 +39,28 @@ public class Game {
 			if (!field.isPieceCollide(currentPiece, PieceAction.DOWN)) {
 				currentPiece.move(0, 1);
 			} else {
-				field.settlePiece(currentPiece);
+				switch (field.settlePiece(currentPiece)) {
+				case 1: {
+					points += 40;
+					logger.info("Points earned: 40; Current points: " + points);
+					break;
+				}
+				case 2: {
+					points += 100;
+					logger.info("Points earned: 100; Current points: " + points);
+					break;
+				}
+				case 3: {
+					points += 300;
+					logger.info("Points earned: 300; Current points: " + points);
+					break;
+				}
+				case 4: {
+					points += 1200;
+					logger.info("Points earned: 1200; Current points: " + points);
+					break;
+				}
+				}
 				currentPiece = null;
 			}
 		}

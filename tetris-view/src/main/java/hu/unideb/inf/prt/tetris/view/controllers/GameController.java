@@ -49,7 +49,8 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonLeft(ActionEvent event) {
-		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.LEFT)) {
+		if (game.getCurrentPiece() != null
+				&& !game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.LEFT)) {
 			game.getCurrentPiece().move(-1, 0);
 		}
 		render();
@@ -57,7 +58,8 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonRight(ActionEvent event) {
-		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.RIGHT)) {
+		if (game.getCurrentPiece() != null
+				&& !game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.RIGHT)) {
 			game.getCurrentPiece().move(1, 0);
 		}
 		render();
@@ -65,7 +67,8 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonRotateLeft(ActionEvent event) {
-		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.ROTATE_LEFT)) {
+		if (game.getCurrentPiece() != null
+				&& !game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.ROTATE_LEFT)) {
 			game.getCurrentPiece().rotate(false);
 		}
 		render();
@@ -73,7 +76,8 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonRotateRight(ActionEvent event) {
-		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.ROTATE_RIGHT)) {
+		if (game.getCurrentPiece() != null
+				&& !game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.ROTATE_RIGHT)) {
 			game.getCurrentPiece().rotate(true);
 		}
 		render();
@@ -81,7 +85,8 @@ public class GameController implements Initializable {
 
 	@FXML
 	private void handleButtonDown(ActionEvent event) {
-		if (!game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.DOWN)) {
+		if (game.getCurrentPiece() != null
+				&& !game.getField().isPieceCollide(game.getCurrentPiece(), PieceAction.DOWN)) {
 			game.getCurrentPiece().move(0, 1);
 		}
 		render();
@@ -115,6 +120,7 @@ public class GameController implements Initializable {
 	}
 
 	private void drawField() {
+		gcField.setStroke(Color.BLACK);
 		int[][] fieldMap = game.getField().getMap();
 		for (int i = 0; i < fieldMap.length; i++) {
 			for (int j = 0; j < fieldMap[i].length; j++) {
@@ -126,6 +132,7 @@ public class GameController implements Initializable {
 	}
 
 	private void drawCurrentPiece() {
+		gcField.setStroke(Color.LIGHTGRAY);
 		Piece currentPiece = game.getCurrentPiece();
 		int[][] currentPieceFigure = currentPiece.getFigure();
 		for (int i = 0; i < currentPieceFigure.length; i++) {
@@ -138,10 +145,13 @@ public class GameController implements Initializable {
 	}
 
 	private void drawNextPiece() {
+		gcNextPiece.setStroke(Color.LIGHTGRAY);
 		int[][] nextPieceFigure = game.getNextPiece().getFigure();
 		for (int i = 0; i < nextPieceFigure.length; i++) {
 			for (int j = 0; j < nextPieceFigure[i].length; j++) {
-				drawBlockOnGc(gcNextPiece, j, i, nextPieceFigure[i][j]);
+				if (nextPieceFigure[i][j] != 0) {
+					drawBlockOnGc(gcNextPiece, j, i, nextPieceFigure[i][j]);
+				}
 			}
 		}
 	}
@@ -155,6 +165,7 @@ public class GameController implements Initializable {
 				gcField.strokeRect(i * 16, j * 16, 15, 15);
 			}
 		}
+
 		gcNextPiece.setFill(Color.BLACK);
 		gcNextPiece.fillRect(0, 0, 64, 64);
 		gcNextPiece.setStroke(Color.GRAY);
