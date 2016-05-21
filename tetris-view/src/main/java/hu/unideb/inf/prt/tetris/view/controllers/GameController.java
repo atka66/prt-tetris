@@ -1,24 +1,30 @@
 package hu.unideb.inf.prt.tetris.view.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import hu.unideb.inf.prt.tetris.controller.game.Game;
 import hu.unideb.inf.prt.tetris.controller.game.Piece;
 import hu.unideb.inf.prt.tetris.controller.game.PieceAction;
+import hu.unideb.inf.prt.tetris.view.main.Main;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class GameController implements Initializable {
@@ -188,8 +194,22 @@ public class GameController implements Initializable {
 				drawNextPiece();
 			}
 		} else {
-			game.addCurrentGameToHighscore();
+			Main.score = game.getPoints();
 			timeline.stop();
+
+			Stage stage;
+			Parent root;
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GameOverFXML.fxml"));
+				root = loader.load();
+				loader.<GameOverController> getController();
+				stage = (Stage) buttonDown.getScene().getWindow();
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -198,7 +218,7 @@ public class GameController implements Initializable {
 		gcField = canvasField.getGraphicsContext2D();
 		gcNextPiece = canvasNextPiece.getGraphicsContext2D();
 		render();
-		timeline = new Timeline(new KeyFrame(Duration.millis(20), ae -> {
+		timeline = new Timeline(new KeyFrame(Duration.millis(2), ae -> {
 			game.tick();
 			render();
 		}));

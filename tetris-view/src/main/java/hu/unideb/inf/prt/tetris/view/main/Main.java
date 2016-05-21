@@ -7,18 +7,22 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	@Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuFXML.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setTitle("Tetris");
-        stage.setScene(scene);
-        stage.show();
-    }
+	
+	public static String player = "Anonymous";
+	public static int score = 0;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+	@Override
+	public void start(Stage stage) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuFXML.fxml"));
+
+		Scene scene = new Scene(root);
+
+		stage.setTitle("Tetris");
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

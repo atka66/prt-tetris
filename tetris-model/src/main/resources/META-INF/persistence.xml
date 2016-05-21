@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="HighscoreDb">
+       <provider>org.hibernate.ejb.HibernatePersistence</provider>
+       <properties>
+           <property name="hibernate.connection.url" value="jdbc:oracle:thin:@db.inf.unideb.hu:1521:ora11g"/>
+           <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver"/>
+           <property name="hibernate.connection.username" value="H_V2TTR5"/>
+           <property name="hibernate.connection.password" value="Atkagame"/>
+       </properties>
+</persistence-unit>
+</persistence>
