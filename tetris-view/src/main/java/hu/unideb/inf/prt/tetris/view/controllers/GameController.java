@@ -218,7 +218,7 @@ public class GameController implements Initializable {
 		gcField = canvasField.getGraphicsContext2D();
 		gcNextPiece = canvasNextPiece.getGraphicsContext2D();
 		render();
-		timeline = new Timeline(new KeyFrame(Duration.millis(2), ae -> {
+		timeline = new Timeline(new KeyFrame(Duration.millis(20), ae -> {
 			game.tick();
 			render();
 		}));

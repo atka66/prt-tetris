@@ -28,8 +28,10 @@ public class HighscoreServiceImpl implements HighscoreService {
 
 	@Override
 	public List<Highscore> getAll() {
-		// TODO
-		return null;
+		logger.info("Getting all score from HIGHSCORE table");
+		return entityManager
+				.createQuery("SELECT h from hu.unideb.inf.prt.tetris.model.entity.Highscore h", Highscore.class)
+				.getResultList();
 	}
 
 }
