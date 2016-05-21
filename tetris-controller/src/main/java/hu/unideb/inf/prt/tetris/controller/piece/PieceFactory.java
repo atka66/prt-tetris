@@ -8,6 +8,12 @@ import org.slf4j.LoggerFactory;
 public class PieceFactory {
 
 	private static Logger logger = LoggerFactory.getLogger(PieceFactory.class);
+	
+	public static Piece CreatePiece(int[][] figure) {
+		Piece resultPiece = new Piece();
+		resultPiece.setFigure(figure);
+		return resultPiece;
+	}
 
 	public static Piece CreateRandomPiece() {
 		Piece resultPiece = new Piece();

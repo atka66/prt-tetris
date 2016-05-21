@@ -22,8 +22,8 @@ public class Piece {
 		logger.info("Piece moved to [" + x + "," + y + "]");
 	}
 
-	public void rotate(boolean left) {
-		if (left) {
+	public void rotate(boolean right) {
+		if (right) {
 			int[][] figureTemp = new int[figure.length][figure[0].length];
 			for (int i = 0; i < figureTemp.length; i++) {
 				for (int j = 0; j < figureTemp[i].length; j++) {
@@ -40,7 +40,7 @@ public class Piece {
 			}
 			figure = figureTemp;
 		}
-		logger.info("Piece rotated " + (left ? "counterclockwised" : "clockwised"));
+		logger.info("Piece rotated " + (right ? "clockwised" : "counterclockwised"));
 	}
 
 	public int[][] getFigure() {
