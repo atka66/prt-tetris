@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.tetris.controller.game;
+package hu.unideb.inf.prt.tetris.controller.piece;
 
 import java.util.Random;
 

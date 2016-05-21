@@ -7,6 +7,10 @@ import javax.persistence.Persistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import hu.unideb.inf.prt.tetris.controller.field.Field;
+import hu.unideb.inf.prt.tetris.controller.piece.Piece;
+import hu.unideb.inf.prt.tetris.controller.piece.PieceAction;
+import hu.unideb.inf.prt.tetris.controller.piece.PieceFactory;
 import hu.unideb.inf.prt.tetris.model.entity.Highscore;
 import hu.unideb.inf.prt.tetris.model.service.HighscoreService;
 import hu.unideb.inf.prt.tetris.model.serviceImpl.HighscoreServiceImpl;
