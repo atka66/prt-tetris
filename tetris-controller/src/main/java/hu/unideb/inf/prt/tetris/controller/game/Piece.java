@@ -11,20 +11,20 @@ import org.slf4j.LoggerFactory;
 public class Piece {
 
 	/**
-	 * The logger of the object
+	 * The logger of the object.
 	 */
 	private static Logger logger = LoggerFactory.getLogger(Piece.class);
 
 	/**
-	 * This is the current 'physical' appearance of the piece
+	 * This is the current 'physical' appearance of the piece.
 	 */
 	private int[][] figure;
 	/**
-	 * How far is the figure from the left side
+	 * How far is the figure from the left side.
 	 */
 	private int x;
 	/**
-	 * How far is the figure from the top
+	 * How far is the figure from the top.
 	 */
 	private int y;
 
@@ -39,7 +39,7 @@ public class Piece {
 	}
 
 	/**
-	 * Moves the piece
+	 * Moves the piece.
 	 * 
 	 * @param xx
 	 *            the number of steps in the X-axis
@@ -54,7 +54,7 @@ public class Piece {
 
 	/**
 	 * Rotates the figure of the piece by 90 degrees clockwise or
-	 * counterclockwise
+	 * counterclockwise.
 	 * 
 	 * @param right
 	 *            if true, it turns clockwise, otherwise it turns
@@ -82,7 +82,8 @@ public class Piece {
 	}
 
 	/**
-	 * Getter method for the figure
+	 * Getter method for the figure.
+	 * 
 	 * @return the figure
 	 */
 	public int[][] getFigure() {
@@ -90,7 +91,8 @@ public class Piece {
 	}
 
 	/**
-	 * Setter method for the figure
+	 * Setter method for the figure.
+	 * 
 	 * @param figure
 	 *            the figure to set
 	 */
@@ -99,7 +101,8 @@ public class Piece {
 	}
 
 	/**
-	 * Getter method for the distance from the left side
+	 * Getter method for the distance from the left side.
+	 * 
 	 * @return the distance from the left side
 	 */
 	public int getX() {
@@ -107,7 +110,8 @@ public class Piece {
 	}
 
 	/**
-	 * Setter method for the distance from the left side
+	 * Setter method for the distance from the left side.
+	 * 
 	 * @param x
 	 *            the distance to set from the left side
 	 */
@@ -116,7 +120,8 @@ public class Piece {
 	}
 
 	/**
-	 * Getter method for the distance from the top
+	 * Getter method for the distance from the top.
+	 * 
 	 * @return the distance from the top
 	 */
 	public int getY() {
@@ -124,7 +129,8 @@ public class Piece {
 	}
 
 	/**
-	 * Setter method for the distance from the top
+	 * Setter method for the distance from the top.
+	 * 
 	 * @param y
 	 *            the distance to set from the top
 	 */

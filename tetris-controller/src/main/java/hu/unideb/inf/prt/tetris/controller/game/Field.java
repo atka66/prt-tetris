@@ -5,37 +5,37 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The representation of the playing area and addictional methods to simulate
- * proper {@link Piece} behavior
+ * proper {@link Piece} behavior.
  * 
  * @author Atka
  */
 public class Field {
 
 	/**
-	 * The logger of the object
+	 * The logger of the object.
 	 */
 	private static Logger logger = LoggerFactory.getLogger(Field.class);
 
 	/**
-	 * The 10x20 block playing area of a game
+	 * The 10x20 block playing area of a game.
 	 */
 	private int[][] map;
 
 	/**
-	 * Constructor to initialize a field
+	 * Constructor to initialize a field.
 	 */
 	public Field() {
-		map = new int[20][10];
-		for (int i = 0; i < map.length; i++) {
-			for (int j = 0; j < map[i].length; j++) {
-				map[i][j] = 0;
+		setMap(new int[20][10]);
+		for (int i = 0; i < getMap().length; i++) {
+			for (int j = 0; j < getMap()[i].length; j++) {
+				getMap()[i][j] = 0;
 			}
 		}
 	}
 
 	/**
 	 * Checks if a {@link Piece} has enough space to spawn in to the top-center
-	 * part of the map
+	 * part of the map.
 	 * 
 	 * @param piece
 	 *            the piece to check
@@ -45,7 +45,7 @@ public class Field {
 		int[][] pieceFigure = piece.getFigure();
 		for (int i = 0; i < pieceFigure.length; i++) {
 			for (int j = 0; j < pieceFigure[i].length; j++) {
-				if (pieceFigure[i][j] != 0 && map[piece.getY() + i][piece.getX() + j] != 0) {
+				if (pieceFigure[i][j] != 0 && getMap()[piece.getY() + i][piece.getX() + j] != 0) {
 					logger.info("GAME OVER! New piece cannot spawn");
 					return true;
 				}
@@ -56,7 +56,7 @@ public class Field {
 
 	/**
 	 * Checks if a {@link Piece} collides with already settled pieces or the
-	 * sides of the map while performing a {@link PieceAction}
+	 * sides of the map while performing a {@link PieceAction}.
 	 * 
 	 * @param piece
 	 *            the piece to check
@@ -107,14 +107,12 @@ public class Field {
 			figure = figureTemp;
 			break;
 		}
-		default: {
-		}
 		}
 		for (int i = 0; i < figure.length; i++) {
 			for (int j = 0; j < figure[i].length; j++) {
 				if (figure[i][j] != 0) {
 					try {
-						if (map[piece.getY() + i + yy][piece.getX() + j + xx] != 0) {
+						if (getMap()[piece.getY() + i + yy][piece.getX() + j + xx] != 0) {
 							logger.info("Piece Collides with an already settled piece");
 							return true;
 						}
@@ -131,7 +129,7 @@ public class Field {
 	/**
 	 * Settles a {@link Piece} on the map by setting the values at the proper
 	 * coordinates with the values of the piece's figure. This method also
-	 * clears the rows that got filled by the settling
+	 * clears the rows that got filled by the settling.
 	 * 
 	 * @param piece
 	 *            the piece to settle
@@ -142,18 +140,18 @@ public class Field {
 		for (int i = 0; i < figure.length; i++) {
 			for (int j = 0; j < figure[i].length; j++) {
 				if (figure[i][j] != 0) {
-					map[piece.getY() + i][piece.getX() + j] = figure[i][j];
+					getMap()[piece.getY() + i][piece.getX() + j] = figure[i][j];
 				}
 			}
 		}
 		logger.info("Piece settled");
 		int rowsFull = 0;
-		for (int i = 0; i < map.length; i++) {
+		for (int i = 0; i < getMap().length; i++) {
 			if (rowFull(i)) {
 				rowsFull++;
 				for (int ii = i; ii >= 1; ii--) {
-					for (int j = 0; j < map[ii].length; j++) {
-						map[ii][j] = map[ii - 1][j];
+					for (int j = 0; j < getMap()[ii].length; j++) {
+						getMap()[ii][j] = getMap()[ii - 1][j];
 					}
 				}
 			}
@@ -162,25 +160,36 @@ public class Field {
 	}
 
 	/**
-	 * Checks if the specified row of the map is filled with blocks
+	 * Checks if the specified row of the map is filled with blocks.
 	 * 
 	 * @param i
 	 *            the row of the map to check
 	 * @return true if the row is full, false otherwise
 	 */
 	public boolean rowFull(int i) {
-		for (int j = 0; j < map[i].length; j++) {
-			if (map[i][j] == 0) {
+		for (int j = 0; j < getMap()[i].length; j++) {
+			if (getMap()[i][j] == 0) {
 				return false;
 			}
 		}
 		return true;
 	}
 
+	/**
+	 * Getter method for the map.
+	 * 
+	 * @return the map
+	 */
 	public int[][] getMap() {
 		return map;
 	}
 
+	/**
+	 * Setter method for the map.
+	 * 
+	 * @param map
+	 *            the map to set
+	 */
 	public void setMap(int[][] map) {
 		this.map = map;
 	}

@@ -1,3 +1,4 @@
+//CHECKSTYLE:OFF
 package hu.unideb.inf.prt.tetris.view.main;
 
 import javafx.application.Application;
@@ -7,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	
+
 	public static String player = "Anonymous";
 	public static int score = 0;
 

@@ -7,19 +7,19 @@ import org.slf4j.LoggerFactory;
 
 /**
  * A basic factory with static methods to create a valid random {@link Piece},
- * or to create a unique one (for test purposes)
+ * or to create a unique one (for test purposes).
  * 
  * @author Atka
  */
 public class PieceFactory {
 
 	/**
-	 * The logger of the object
+	 * The logger of the object.
 	 */
 	private static Logger logger = LoggerFactory.getLogger(PieceFactory.class);
 
 	/**
-	 * This method creates a unique {@link Piece} by the given parameter
+	 * This method creates a unique {@link Piece} by the given parameter.
 	 * 
 	 * @param figure
 	 *            the figure of the new piece
@@ -35,7 +35,7 @@ public class PieceFactory {
 	 * This method creates a random {@link Piece} with a random generator. The
 	 * figures are legit representations of the original Tetris game's pieces.
 	 * 
-	 * @return the piece with a randomly generated legit figure 
+	 * @return the piece with a randomly generated legit figure
 	 */
 	public static Piece CreateRandomPiece() {
 		Piece resultPiece = new Piece();

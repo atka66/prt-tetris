@@ -12,25 +12,25 @@ import hu.unideb.inf.prt.tetris.model.entity.Highscore;
 import hu.unideb.inf.prt.tetris.model.service.HighscoreService;
 
 /**
- * Implementation of the Highscore service interface.
+ * Implementation of the Highscore service interface..
  * 
  * @author Atka
  */
 public class HighscoreServiceImpl implements HighscoreService {
 
 	/**
-	 * The logger of the object
+	 * The logger of the object.
 	 */
 	private static Logger logger = LoggerFactory.getLogger(HighscoreServiceImpl.class);
 
 	/**
 	 * The entity-manager corresponding for the persisting, retrieving and
-	 * removing from the table
+	 * removing from the table.
 	 */
 	EntityManager entityManager;
 
 	/**
-	 * The constructor to initialize our entity-manager
+	 * The constructor to initialize our entity-manager.
 	 * 
 	 * @param entityManager
 	 *            the entity-manager to set
@@ -40,7 +40,7 @@ public class HighscoreServiceImpl implements HighscoreService {
 	}
 
 	/**
-	 * Adds the parameter entity to the database
+	 * Adds the parameter entity to the database.
 	 * 
 	 * @param highscore
 	 *            the highscore entity to persist
@@ -52,7 +52,7 @@ public class HighscoreServiceImpl implements HighscoreService {
 	}
 
 	/**
-	 * Returns every highscore entity in the database
+	 * Returns every highscore entity in the database.
 	 * 
 	 * @return the list of entities in the database
 	 */
@@ -65,7 +65,7 @@ public class HighscoreServiceImpl implements HighscoreService {
 	}
 
 	/**
-	 * Returns a highscore entity by its ID
+	 * Returns a highscore entity by its ID.
 	 * 
 	 * @param id
 	 *            the ID of the entity
@@ -81,7 +81,7 @@ public class HighscoreServiceImpl implements HighscoreService {
 	}
 
 	/**
-	 * Removes a highscore entity by its ID from the database
+	 * Removes a highscore entity by its ID from the database.
 	 * 
 	 * @param id
 	 *            the ID of the entity to delete

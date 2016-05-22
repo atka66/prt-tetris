@@ -1,5 +1,5 @@
 /**
- * This package contains the classes that implement the original Tetris game
+ * This package contains the classes that implement the original Tetris game.
  * logic
  * 
  * @author atka

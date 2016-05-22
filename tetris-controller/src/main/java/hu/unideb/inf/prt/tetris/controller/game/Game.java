@@ -11,39 +11,39 @@ import org.slf4j.LoggerFactory;
 public class Game {
 
 	/**
-	 * The logger of the object
+	 * The logger of the object.
 	 */
 	private static Logger logger = LoggerFactory.getLogger(Game.class);
 
 	/**
-	 * The play area, where the pieces are spawned
+	 * The play area, where the pieces are spawned.
 	 */
 	private Field field;
 	/**
-	 * The piece that is currently moved by the player
+	 * The piece that is currently moved by the player.
 	 */
 	private Piece currentPiece;
 	/**
 	 * The next piece, which is shown somewhere in the view to help the player
-	 * make better choice on where to put the current piece
+	 * make better choice on where to put the current piece.
 	 */
 	private Piece nextPiece;
 	/**
-	 * The points the player currently has in this playing session
+	 * The points the player currently has in this playing session.
 	 */
 	private int points;
 	/**
-	 * Represents the state of the game
+	 * Represents the state of the game.
 	 */
 	private boolean gameOver;
 	/**
 	 * Counts the gametime, but acts like a timer. It is used to determine when
-	 * to move down the current piece by one
+	 * to move down the current piece by one.
 	 */
 	private int tickCount;
 
 	/**
-	 * Constructor to initialize a game
+	 * Constructor to initialize a game.
 	 */
 	public Game() {
 		logger.info("New game created.");
@@ -55,7 +55,7 @@ public class Game {
 
 	/**
 	 * Accounts an ammount of points according to the number of rows cleared at
-	 * once
+	 * once.
 	 * 
 	 * @param rows
 	 *            the number of rows cleared at once
@@ -87,7 +87,7 @@ public class Game {
 	 * every 20 seconds by default (depending on the view). This method is
 	 * responsible for the manual movement of the current piece, determining the
 	 * endgame, settling a piece if it has something below it, generating new
-	 * pieces and slowly moving the piece down automatically
+	 * pieces and slowly moving the piece down automatically.
 	 */
 	public void tick() {
 		tickCount++;
@@ -109,7 +109,8 @@ public class Game {
 	}
 
 	/**
-	 * Getter method for the field
+	 * Getter method for the field.
+	 * 
 	 * @return the field
 	 */
 	public Field getField() {
@@ -117,15 +118,18 @@ public class Game {
 	}
 
 	/**
-	 * Setter method for the field
-	 * @param field the field to set
+	 * Setter method for the field.
+	 * 
+	 * @param field
+	 *            the field to set
 	 */
 	public void setField(Field field) {
 		this.field = field;
 	}
 
 	/**
-	 * Getter method for the current piece
+	 * Getter method for the current piece.
+	 * 
 	 * @return the current piece
 	 */
 	public Piece getCurrentPiece() {
@@ -133,15 +137,18 @@ public class Game {
 	}
 
 	/**
-	 * Setter method for the current piece
-	 * @param currentPiece the current piece to set
+	 * Setter method for the current piece.
+	 * 
+	 * @param currentPiece
+	 *            the current piece to set
 	 */
 	public void setCurrentPiece(Piece currentPiece) {
 		this.currentPiece = currentPiece;
 	}
 
 	/**
-	 * Getter method for the next piece
+	 * Getter method for the next piece.
+	 * 
 	 * @return the next piece
 	 */
 	public Piece getNextPiece() {
@@ -149,15 +156,18 @@ public class Game {
 	}
 
 	/**
-	 * Setter method for the next piece
-	 * @param nextPiece the next piece to set
+	 * Setter method for the next piece.
+	 * 
+	 * @param nextPiece
+	 *            the next piece to set
 	 */
 	public void setNextPiece(Piece nextPiece) {
 		this.nextPiece = nextPiece;
 	}
 
 	/**
-	 * Getter method for the points
+	 * Getter method for the points.
+	 * 
 	 * @return the points
 	 */
 	public int getPoints() {
@@ -165,15 +175,18 @@ public class Game {
 	}
 
 	/**
-	 * Setter method for the points
-	 * @param points the points to set
+	 * Setter method for the points.
+	 * 
+	 * @param points
+	 *            the points to set
 	 */
 	public void setPoints(int points) {
 		this.points = points;
 	}
 
 	/**
-	 * Getter method for the game state
+	 * Getter method for the game state.
+	 * 
 	 * @return the state of the game
 	 */
 	public boolean isGameOver() {
@@ -181,15 +194,18 @@ public class Game {
 	}
 
 	/**
-	 * Setter method for the game state
-	 * @param gameOver the state of the game to set
+	 * Setter method for the game state.
+	 * 
+	 * @param gameOver
+	 *            the state of the game to set
 	 */
 	public void setGameOver(boolean gameOver) {
 		this.gameOver = gameOver;
 	}
 
 	/**
-	 * Getter method for the tick count
+	 * Getter method for the tick count.
+	 * 
 	 * @return the tick count
 	 */
 	public int getTickCount() {
@@ -197,8 +213,10 @@ public class Game {
 	}
 
 	/**
-	 * Setter method for the tick count
-	 * @param tickCount the tick count to set
+	 * Setter method for the tick count.
+	 * 
+	 * @param tickCount
+	 *            the tick count to set
 	 */
 	public void setTickCount(int tickCount) {
 		this.tickCount = tickCount;

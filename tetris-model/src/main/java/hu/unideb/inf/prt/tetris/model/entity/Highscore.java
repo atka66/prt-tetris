@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 /**
- * The entity object for the records in the HIGHSCORE table
+ * The entity object for the records in the HIGHSCORE table.
  * 
  * @author Atka
  */
@@ -16,7 +16,7 @@ import javax.persistence.SequenceGenerator;
 public class Highscore {
 
 	/**
-	 * The ID of the Highscore
+	 * The ID of the Highscore.
 	 */
 	@Id
 	@Column(name = "id")
@@ -24,23 +24,23 @@ public class Highscore {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IdGenerator")
 	private int id;
 	/**
-	 * The name of the player
+	 * The name of the player.
 	 */
 	private String player;
 	/**
-	 * The score the player reached
+	 * The score the player reached.
 	 */
 	private int score;
 
 	/**
-	 * Empty constructor
+	 * Empty constructor.
 	 */
 	public Highscore() {
 		super();
 	}
 
 	/**
-	 * Constructor to initialize the fields
+	 * Constructor to initialize the fields.
 	 * 
 	 * @param player
 	 *            the player to set
@@ -54,7 +54,7 @@ public class Highscore {
 	}
 
 	/**
-	 * Getter method for ID
+	 * Getter method for ID.
 	 * 
 	 * @return the ID
 	 */
@@ -63,7 +63,7 @@ public class Highscore {
 	}
 
 	/**
-	 * Setter method for ID
+	 * Setter method for ID.
 	 * 
 	 * @param id
 	 *            the ID to set
@@ -73,7 +73,7 @@ public class Highscore {
 	}
 
 	/**
-	 * Getter method for the player
+	 * Getter method for the player.
 	 * 
 	 * @return the player
 	 */
@@ -82,7 +82,7 @@ public class Highscore {
 	}
 
 	/**
-	 * Setter method for the player
+	 * Setter method for the player.
 	 * 
 	 * @param player
 	 *            the player to set
@@ -92,7 +92,7 @@ public class Highscore {
 	}
 
 	/**
-	 * Getter method for the score
+	 * Getter method for the score.
 	 * 
 	 * @return the score
 	 */
@@ -101,7 +101,7 @@ public class Highscore {
 	}
 
 	/**
-	 * Setter method for the score
+	 * Setter method for the score.
 	 * 
 	 * @param score
 	 *            the score to set

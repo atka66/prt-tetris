@@ -46,9 +46,18 @@ public class FieldTest {
 	public void settlePieceTest() {
 		Field fieldTest = new Field();
 		Piece pieceTest = new Piece();
-		fieldTest.setMap(new int[][] { { 0, 0, 0, 0, 0 } });
+		fieldTest.setMap(new int[][] { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 } });
 		pieceTest.setFigure(new int[][] { { 1 } });
+		pieceTest.move(0, 1);
 		fieldTest.settlePiece(pieceTest);
-		Assert.assertEquals(1, fieldTest.getMap()[0][4]);
+		Assert.assertEquals(1, fieldTest.getMap()[1][4]);
+		pieceTest.move(-1, 0);
+		fieldTest.settlePiece(pieceTest);
+		pieceTest.move(-1, 0);
+		fieldTest.settlePiece(pieceTest);
+		pieceTest.move(-1, 0);
+		fieldTest.settlePiece(pieceTest);
+		pieceTest.move(-1, 0);
+		fieldTest.settlePiece(pieceTest);
 	}
 }

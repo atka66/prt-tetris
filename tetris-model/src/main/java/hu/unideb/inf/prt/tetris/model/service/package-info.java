@@ -1,6 +1,6 @@
 /**
  * This package contains the service interfaces with methods to manipulate
- * records in the database
+ * records in the database.
  * 
  * @author atka
  */

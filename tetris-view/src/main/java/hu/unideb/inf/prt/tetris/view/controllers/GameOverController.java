@@ -1,3 +1,4 @@
+//CHECKSTYLE:OFF
 package hu.unideb.inf.prt.tetris.view.controllers;
 
 import java.io.IOException;

@@ -12,7 +12,7 @@ import hu.unideb.inf.prt.tetris.model.entity.Highscore;
  */
 public interface HighscoreService {
 	/**
-	 * Adds the parameter entity to the database
+	 * Adds the parameter entity to the database.
 	 * 
 	 * @param highscore
 	 *            the highscore entity to persist
@@ -20,14 +20,14 @@ public interface HighscoreService {
 	public void add(Highscore highscore);
 
 	/**
-	 * Returns every highscore entity in the database
+	 * Returns every highscore entity in the database.
 	 * 
 	 * @return the list of entities in the database
 	 */
 	public List<Highscore> getAll();
 
 	/**
-	 * Returns a highscore entity by its ID
+	 * Returns a highscore entity by its ID.
 	 * 
 	 * @param id
 	 *            the ID of the entity
@@ -36,7 +36,7 @@ public interface HighscoreService {
 	public Highscore getById(int id);
 
 	/**
-	 * Removes a highscore entity by its ID from the database
+	 * Removes a highscore entity by its ID from the database.
 	 * 
 	 * @param id
 	 *            the ID of the entity to delete
