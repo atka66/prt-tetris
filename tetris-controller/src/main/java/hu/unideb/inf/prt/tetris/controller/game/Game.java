@@ -3,11 +3,6 @@ package hu.unideb.inf.prt.tetris.controller.game;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import hu.unideb.inf.prt.tetris.controller.field.Field;
-import hu.unideb.inf.prt.tetris.controller.piece.Piece;
-import hu.unideb.inf.prt.tetris.controller.piece.PieceAction;
-import hu.unideb.inf.prt.tetris.controller.piece.PieceFactory;
-
 /**
  * The representation of a simple game of Tetris.
  * 

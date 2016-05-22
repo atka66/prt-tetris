@@ -1,9 +1,7 @@
-package hu.unideb.inf.prt.tetris.controller.piece;
+package hu.unideb.inf.prt.tetris.controller.game;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import hu.unideb.inf.prt.tetris.controller.field.Field;
 
 /**
  * The representation of a tetris piece.

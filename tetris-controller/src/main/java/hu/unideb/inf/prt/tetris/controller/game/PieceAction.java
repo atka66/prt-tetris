@@ -1,4 +1,4 @@
-package hu.unideb.inf.prt.tetris.controller.piece;
+package hu.unideb.inf.prt.tetris.controller.game;
 
 /**
  * The enumeration of the several actions a piece can do including three

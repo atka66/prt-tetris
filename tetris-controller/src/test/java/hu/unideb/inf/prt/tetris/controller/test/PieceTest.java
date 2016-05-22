@@ -3,8 +3,8 @@ package hu.unideb.inf.prt.tetris.controller.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import hu.unideb.inf.prt.tetris.controller.piece.Piece;
-import hu.unideb.inf.prt.tetris.controller.piece.PieceFactory;
+import hu.unideb.inf.prt.tetris.controller.game.Piece;
+import hu.unideb.inf.prt.tetris.controller.game.PieceFactory;
 
 public class PieceTest {
 	

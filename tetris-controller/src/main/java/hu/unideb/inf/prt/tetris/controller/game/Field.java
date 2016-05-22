@@ -1,10 +1,7 @@
-package hu.unideb.inf.prt.tetris.controller.field;
+package hu.unideb.inf.prt.tetris.controller.game;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import hu.unideb.inf.prt.tetris.controller.piece.Piece;
-import hu.unideb.inf.prt.tetris.controller.piece.PieceAction;
 
 /**
  * The representation of the playing area and addictional methods to simulate
