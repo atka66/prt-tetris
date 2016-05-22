@@ -6,12 +6,27 @@ import org.slf4j.LoggerFactory;
 import hu.unideb.inf.prt.tetris.controller.piece.Piece;
 import hu.unideb.inf.prt.tetris.controller.piece.PieceAction;
 
+/**
+ * The representation of the playing area and addictional methods to simulate
+ * proper {@link Piece} behavior
+ * 
+ * @author Atka
+ */
 public class Field {
 
+	/**
+	 * The logger of the object
+	 */
 	private static Logger logger = LoggerFactory.getLogger(Field.class);
 
+	/**
+	 * The 10x20 block playing area of a game
+	 */
 	private int[][] map;
 
+	/**
+	 * Constructor to initialize a field
+	 */
 	public Field() {
 		map = new int[20][10];
 		for (int i = 0; i < map.length; i++) {
@@ -21,6 +36,14 @@ public class Field {
 		}
 	}
 
+	/**
+	 * Checks if a {@link Piece} has enough space to spawn in to the top-center
+	 * part of the map
+	 * 
+	 * @param piece
+	 *            the piece to check
+	 * @return true if the piece can be spawn, false otherwise
+	 */
 	public boolean isBadSpawn(Piece piece) {
 		int[][] pieceFigure = piece.getFigure();
 		for (int i = 0; i < pieceFigure.length; i++) {
@@ -34,6 +57,17 @@ public class Field {
 		return false;
 	}
 
+	/**
+	 * Checks if a {@link Piece} collides with already settled pieces or the
+	 * sides of the map while performing a {@link PieceAction}
+	 * 
+	 * @param piece
+	 *            the piece to check
+	 * @param action
+	 *            the action to check
+	 * @return true if the piece will collide while performing the action, false
+	 *         otherwise
+	 */
 	public boolean isPieceCollide(Piece piece, PieceAction action) {
 		int[][] figure = new int[piece.getFigure().length][piece.getFigure()[0].length];
 		for (int i = 0; i < figure.length; i++) {
@@ -97,6 +131,15 @@ public class Field {
 		return false;
 	}
 
+	/**
+	 * Settles a {@link Piece} on the map by setting the values at the proper
+	 * coordinates with the values of the piece's figure. This method also
+	 * clears the rows that got filled by the settling
+	 * 
+	 * @param piece
+	 *            the piece to settle
+	 * @return the number of rows cleared
+	 */
 	public int settlePiece(Piece piece) {
 		int[][] figure = piece.getFigure();
 		for (int i = 0; i < figure.length; i++) {
@@ -121,6 +164,13 @@ public class Field {
 		return rowsFull;
 	}
 
+	/**
+	 * Checks if the specified row of the map is filled with blocks
+	 * 
+	 * @param i
+	 *            the row of the map to check
+	 * @return true if the row is full, false otherwise
+	 */
 	public boolean rowFull(int i) {
 		for (int j = 0; j < map[i].length; j++) {
 			if (map[i][j] == 0) {
