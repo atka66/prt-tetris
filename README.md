@@ -47,7 +47,23 @@ Git-specific:
 Usage
 -----
 
-After pulling, stand in the parent project's directory, whe
+First thing you must do, is adding `oracle7.jar` to your local repository. You only have to do this one time.
+> $ mvn install:install-file -Dfile=lib/ojdbc7.jar -DgroupId=com.oracle.jdbc -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar
+
+After that, you can either do two things:
+* Build a standalone `.jar` application, and run it
+
+> $ mvn clean package
+
+> $ cd target
+
+> $ java -jar tetris-1.0-jar-with-dependencies.jar
+
+Or
+
+* Run it directly
+
+> $ mvn exec:java -Dexec.mainClass=hu.unideb.inf.prt.tetris.view.main.Main
 
 Sources
 -------
